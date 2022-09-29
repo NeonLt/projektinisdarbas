@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAirlineTable extends Migration
+class CreateAirportsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreateAirlineTable extends Migration
      */
     public function up()
     {
-        Schema::create('airline', function (Blueprint $table) {
+        Schema::create('airports', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
-            $table->foreignId('country_id')->constrained('countries');
             $table->timestamps();
+            $table->string('name');
+            $table->string('country_name');
+            $table->decimal('latitude');
+            $table->decimal('longtitude');
+            $table->foreignId('country_id');
         });
     }
 
@@ -28,6 +31,8 @@ class CreateAirlineTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('airline');
+        Schema::dropIfExists('airports');
     }
 }
+
+

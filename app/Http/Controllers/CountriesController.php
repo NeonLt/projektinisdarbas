@@ -15,7 +15,7 @@ class CountriesController extends Controller
      */
     public function index()
     {
-        return view('countries');
+        return view('Salys');
     }
 
     /**

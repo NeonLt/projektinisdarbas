@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\http\controllers\AvalinijosController
+use App\http\controllers\AvalinijosController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,17 +22,17 @@ route::get('/Avalinijos', [AvalinijosController::class, 'index']);
 route::get('/Salys', [SalysController::class, 'index']);
 
 
-// Route::get('/oro_linijos', function () {
-//     return view('oro_linijos');
-// });
+ //Route::get('/oro_linijos', function () {
+ //   return view('oro_linijos');
+//});
 
 // Route::get('/Avalinijos', function () {
 //     return view('Avalinijos');
-// });
+//  });
 
-// Route::get('/Salys', function () {
-//     return view('Salys');
-// });
+//  //Route::get('/Salys', function () {
+//   //   return view('Salys');
+//  });
 
 Route::get('/oro_linijos_edit', function () {
     return view('oro_linijos_edit');

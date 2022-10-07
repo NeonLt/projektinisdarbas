@@ -25,7 +25,7 @@ class CountriesController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.countries.add_countries');
     }
 
     /**
@@ -36,7 +36,16 @@ class CountriesController extends Controller
      */
     public function store(StorecountriesRequest $request)
     {
-        //
+        $validate = $request->validate([
+            'countries' => 'required|unique:countries|max:100',
+            'ISO' => 'required|unique:countries|min:3|max:3',
+        ]);
+
+        Countries::create([
+            'countries' => request('countries'),
+            'ISO' => request('ISO'),
+        ]);
+        return redirect('/Salys');
     }
 
     /**
@@ -47,7 +56,9 @@ class CountriesController extends Controller
      */
     public function show(countries $countries)
     {
-        //
+        $countries =countries::paginate('6');
+
+        return view('pages.countries.Salys', compact('countries'));
     }
 
     /**
@@ -58,7 +69,7 @@ class CountriesController extends Controller
      */
     public function edit(countries $countries)
     {
-        //
+        return view('pages.countries.Salys_edit', compact('countries'));
     }
 
     /**
@@ -70,7 +81,13 @@ class CountriesController extends Controller
      */
     public function update(UpdatecountriesRequest $request, countries $countries)
     {
-        //
+        $request->validate([
+            'countries' => 'required|unique:countries|max:100',
+            'ISO' => 'required|unique:countries|min:3|max:3',
+        ]);
+
+        Countries::where('id', $countries->id)->update($request->only(['country', 'ISO']));
+        return redirect('/Salys');
     }
 
     /**
@@ -81,6 +98,8 @@ class CountriesController extends Controller
      */
     public function destroy(countries $countries)
     {
-        //
+        $countries ->delete();
+
+        return redirect('/Salys');
     }
 }

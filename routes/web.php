@@ -1,9 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-//use App\http\controllers\AirportsController;
-//use App\http\controllers\CountriesController;
-//use App\http\controllers\CountriesController;
+use App\Http\Controllers\AirportsController;
+use App\Http\Controllers\CountriesController;
+use App\Http\Controllers\AirlinesController;
+use Psr\Http\Message\ServerRequestInterface;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,15 +18,45 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+ 
+Route::get('/', function (ServerRequestInterface $request) {
+    //
+});
+
+
 Route::get('/', function () {
     return view('oro_linijos');
 });
 
-route::get('/oro_linijos', [oro_linijosController::class, 'index']);
-route::get('/Avalinijos', [AvalinijosController::class, 'index']);
-route::get('/Salys', [SalysController::class, 'index']);
+route::get('/oro_linijos', [AirportsController::class, 'index']);
+route::get('/Avalinijos', [AirlinerController::class, 'index']);
+route::get('/Salys', [CountriesController::class, 'index']);
 
 
+Route::get('/Salys', [CountriesController::class, 'show']);
+Route::get('/salys_New', [CountriesController::class,'create']);
+Route::get('/salys_edit/{countries}', [CountriesController::class, 'edit']);
+Route::get('/salys_delete/{countries}', [CountriesController::class, 'destroy']);
+Route::post('/Salys', [CountriesController::class, 'store']);
+
+
+Route::get('/oro_linijos', [AirlinesController::class, 'show']);
+Route::get('/oro_linijos_add', [AirlinesController::class,'create']);
+Route::get('/oro_linijos_edit/{airlines}', [AirlinesController::class, 'edit']);
+Route::get('/oro_linijos_istrynti/{airlines}', [AirlinesController::class, 'destroy']);
+Route::post('/oro_linijos', [AirlinesController::class, 'store']);
+
+
+Route::get('/Avalinijos', [AirportsController::class, 'show']);
+Route::get('/Avalinijos_New', [AirportsController::class,'create']);
+Route::get('/Avalinijos_edit/{airlines}', [AirportsController::class, 'edit']);
+Route::get('/Avalinijos_delete/{airlines}', [AirportsController::class, 'destroy']);
+Route::post('/Avalinijos', [AirportsController::class, 'store']);
+
+
+//Route::post('/countries/update/', function()
+//{
+//});
 
  //Route::get('/oro_linijos', function () {
  //   return view('oro_linijos');
@@ -34,64 +66,4 @@ route::get('/Salys', [SalysController::class, 'index']);
 //     return view('Avalinijos');
 //  });
 
-  Route::get('/Salys', function () {
-      return view('Salys');
-  });
 
-Route::get('/oro_linijos_edit', function () {
-    return view('oro_linijos_edit');
-});
-
-
-Route::get('/oro_linijos_delete', function () {
-    return view('oro_linijos_delete');
-});
-
-Route::get('/salys_edit', function () {
-    return view('salys_edit');
-});
-
-
-Route::get('/salys_delete', function () {
-    return view('salys_delete');
-});
-
-
-Route::get('/Avalinijos_delete', function () {
-    return view('Avalinijos_delete');
-});
-
-
-Route::get('/Avalinijos_edit', function () {
-    return view('Avalinijos_edit');
-});
-
-
-Route::get('/Avalinijos_New', function () {
-    return view('Avalinijos_New');
-});
-
-Route::get('/oro_linijos_New', function () {
-    return view('oro_linijos_New');
-});
-
-Route::get('/salys_New', function () {
-    return view('salys_New');
-});
-
-
-Route::get('/oro_linijos_add', function () {
-    return view('oro_linijos_add');
-});
-
-Route::get('/oro_linijos_istrynti', function () {
-    return view('oro_linijos_istrynti');
-});
-
-Route::get('/oro_linijos_view', function () {
-    return view('oro_linijos_view');
-});
-
-Route::get('/oro_linijos_ieskoti', function () {
-    return view('oro_linijos_ieskoti');
-});

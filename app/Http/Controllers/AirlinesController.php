@@ -27,7 +27,7 @@ class AirlineController extends Controller
      */
     public function create()
     {
-        //
+        return view('oro_linijos_add');
     }
 
     /**

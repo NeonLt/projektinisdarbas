@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\countries;
 use App\Http\Requests\StorecountriesRequest;
 use App\Http\Requests\UpdatecountriesRequest;
+use GuzzleHttp\Psr7\Request;
 
 class CountriesController extends Controller
 {
@@ -25,7 +26,7 @@ class CountriesController extends Controller
      */
     public function create()
     {
-        return view('pages.countries.add_countries');
+     return view('salys_New');
     }
 
     /**
@@ -56,9 +57,9 @@ class CountriesController extends Controller
      */
     public function show(countries $countries)
     {
-        $countries =countries::paginate('6');
+        //$countries =countries::paginate('6');
 
-        return view('pages.countries.Salys', compact('countries'));
+        return view('Salys', compact('countries'));
     }
 
     /**
@@ -69,7 +70,7 @@ class CountriesController extends Controller
      */
     public function edit(countries $countries)
     {
-        return view('pages.countries.Salys_edit', compact('countries'));
+        return view('salys_edit', compact('countries'));
     }
 
     /**
@@ -98,7 +99,7 @@ class CountriesController extends Controller
      */
     public function destroy(countries $countries)
     {
-        $countries ->delete();
+        $countries->delete();
 
         return redirect('/Salys');
     }

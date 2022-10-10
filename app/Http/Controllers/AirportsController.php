@@ -25,7 +25,7 @@ class AirportsController extends Controller
      */
     public function create()
     {
-        //
+        return view('Avalinijos_New');
     }
 
     /**

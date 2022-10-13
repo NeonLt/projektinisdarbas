@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Airline;
+use App\Models\airline;
 use App\Http\Requests\StoreAirlineRequest;
 use App\Http\Requests\UpdateAirlineRequest;
 use App\Models\Airlines;
@@ -17,7 +17,7 @@ class AirlineController extends Controller
      */
     public function index()
     {
-        return view('oro_linijos');
+        return view('Avialinijos');
     }
 
     /**
@@ -27,62 +27,79 @@ class AirlineController extends Controller
      */
     public function create()
     {
-        return view('oro_linijos_add');
+        return view('Avialinijos_New');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreAirlineRequest  $request
+     * @param  \App\Http\Requests\StoreairlineRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreAirlineRequest $request)
+    public function store(StoreairlineRequest $request)
     {
-        //
+        $validate = $request->validate([
+            'name' => 'required|unique:name|max:100',
+            'country_id' => 'required|unique:country_id|max:100',
+        ]);
+
+        airlines::create([
+            'name' => request('name'),
+            'country_id' => request('country_id'),
+        ]);
+        return redirect('/Avialinijos');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Airline  $Airlines
+     * @param  \App\Models\airline  $airlines
      * @return \Illuminate\Http\Response
      */
-    public function show(Airlines $Airlines)
+    public function show(airlines $airlines)
     {
-        //
+        return view('Avialinijos', compact('airlines'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Airline  $Airlines
+     * @param  \App\Models\airline  $airlines
      * @return \Illuminate\Http\Response
      */
-    public function edit(Airlines $Airlines)
+    public function edit(airlines $airlines)
     {
-        //
+        return view('Avialinijos', compact('airlines'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdateAirlineRequest  $request
-     * @param  \App\Models\Airline  $airlines
+     * @param  \App\Models\airline  $airlines
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateAirlineRequest $request, Airlines $airlines)
+    public function update(UpdateAirlineRequest $request, airlines $airlines)
     {
-        //
+        $request->validate([
+            'name' => 'required|unique:name|max:100',
+            'country_id' => 'required|unique:country_id|max:100',
+        ]);
+
+        countries::where('id', $airlines->id)->update($request->only(['name', 'country_id']));
+        return redirect('/Avialinijos');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Airline  $airlines
+     * @param  \App\Models\airline  $airlines
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Airlines $airlines)
+    public function destroy(airlines $airlines)
     {
-        //
+        $airlines->delete();
+
+        return redirect('/Avialinijos');
     }
 }

@@ -36,7 +36,22 @@ class AirportsController extends Controller
      */
     public function store(StoreairportsRequest $request)
     {
-        //
+        $validate = $request->validate([
+            'name' => 'required|unique:countries|max:100',
+            'country_name' => 'required|unique:countries|max:100',
+            'latitude' => 'required|unique:airports|max:100',
+            'longtitude' => 'required|unique:airports|max:100',
+            'country_id' =>  'required|unique:airports|max:100',
+        ]);
+
+        airports::create([
+            'name' => request('name'),
+            'country_name' => request('country_name'),
+            'latitude' => request('latitude'),
+            'longtitude' => request('longtitude'),
+            'country_id' => request('country_id'),
+        ]);
+        return redirect('/Avalinijos');
     }
 
     /**
@@ -47,7 +62,7 @@ class AirportsController extends Controller
      */
     public function show(airports $airports)
     {
-        //
+        return view('Avalinijos', compact('airports'));
     }
 
     /**
@@ -58,7 +73,7 @@ class AirportsController extends Controller
      */
     public function edit(airports $airports)
     {
-        //
+        return view('Avalinijos_edit', compact('airports'));
     }
 
     /**
@@ -70,7 +85,16 @@ class AirportsController extends Controller
      */
     public function update(UpdateairportsRequest $request, airports $airports)
     {
-        //
+        $request->validate([
+            'name' => 'required|unique:countries|max:100',
+            'country_name' => 'required|unique:countries|max:100',
+            'latitude' => 'required|unique:countries|max:100',
+            'longtitude' => 'required|unique:countries|max:100',
+            'country_id' => 'required|unique:countries|max:100',
+        ]);
+
+        countries::where('id', $countries->id)->update($request->only(['name', 'country_name', 'latitude', 'longtitude', 'country_id']));
+        return redirect('/Avalinijos');
     }
 
     /**
@@ -81,6 +105,8 @@ class AirportsController extends Controller
      */
     public function destroy(airports $airports)
     {
-        //
+        $airports->delete();
+
+        return redirect('/Avalinijos');
     }
 }

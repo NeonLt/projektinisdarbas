@@ -24,17 +24,33 @@
 		</div>
 	</nav>
 	<div class="container-fluid mt-3">
-	<form action method="post">
-		<div class="text-center">
-			<h1 class="text-primary">Sukurkitę naują šalį</h1> </div>
-		<hr>
-		<p>Pavadinimas</p>
-		<div class="input-group mb-3">
-			<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"> </div>
-		<p>ISO Kodas</p>
-		<div class="input-group mb-3">
-			<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"> </div>
-		<hr> <a href="#" class="btn btn-success">Sukurti</a> </form>
+		
+		<form action='' method="post">
+			@csrf
+			<div class="text-center">
+				<h1 class="text-primary">Sukurkitę naują šalį</h1>
+			</div>
+			<hr>
+			<p>Pavadinimas</p>
+			<div class="input-group mb-3">
+				<input type="text" name='name' class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+			</div>
+			<p>ISO Kodas</p>
+			<div class="input-group mb-3">
+				<input type="text" name='ISO' class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+			</div>
+			<hr>
+			@if ($errors->any())
+				<div class="alert alert-danger">
+					<ul>
+						@foreach ($errors->all() as $error)
+							<li>{{ $error }}</li>
+						@endforeach
+					</ul>
+				</div>
+			@endif
+			<button type="submit" class="btn btn-success">Sukurti</button>
+		</form>
 	</div>
 	</body>
 

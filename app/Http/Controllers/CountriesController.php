@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\countries;
 use App\Http\Requests\StorecountriesRequest;
 use App\Http\Requests\UpdatecountriesRequest;
-use GuzzleHttp\Psr7\Request;
+// use GuzzleHttp\Psr7\Request;
+use Illuminate\Http\Request;
 
 class CountriesController extends Controller
 {
@@ -16,7 +17,8 @@ class CountriesController extends Controller
      */
     public function index()
     {
-        return view('Salys');
+        $salys = countries::all();
+        return view('Salys', compact('salys'));
     }
 
     /**
@@ -35,15 +37,15 @@ class CountriesController extends Controller
      * @param  \App\Http\Requests\StorecountriesRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorecountriesRequest $request)
+    public function store(Request $request)
     {
         $validate = $request->validate([
-            'countries' => 'required|unique:countries|max:100',
+            'name' => 'required|unique:countries|max:100',
             'ISO' => 'required|unique:countries|min:3|max:3',
         ]);
 
-        Countries::create([
-            'countries' => request('countries'),
+        countries::create([
+            'name' => request('name'),
             'ISO' => request('ISO'),
         ]);
         return redirect('/Salys');
@@ -87,7 +89,7 @@ class CountriesController extends Controller
             'ISO' => 'required|unique:countries|min:3|max:3',
         ]);
 
-        Countries::where('id', $countries->id)->update($request->only(['country', 'ISO']));
+        countries::where('id', $countries->id)->update($request->only(['country', 'ISO']));
         return redirect('/Salys');
     }
 

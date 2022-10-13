@@ -34,34 +34,16 @@
 		<tbody>
 			<tr class="table-active">
 				<th scope="row">Avalinijos</th>
-				<td colspan="2" class="table-active">Šalys</td>
-				<td></td>
-				<td></td>
+				<th colspan="2" class="table-active">Šalys</th>
 			</tr>
-			<tr>
-				<th scope="row"> Lufthansa Group</th>
-				<td colspan="2" class="table-active">Vokietija</td>
-				<td><a href="/Avalinijos_edit" class="btn btn-danger">Redaguoti</a></td>
-				<td><a href="/Avalinijos_delete" class="btn btn-primary">Ištrynti</a></td>
-			</tr>
-			<tr>
-				<th scope="row">China Southern Airlines</th>
-				<td colspan="2" class="table-active">Kinija</td>
-				<td><a href="/Avalinijos_edit" class="btn btn-danger">Redaguoti</a></td>
-				<td><a href="/Avalinijos_delete" class="btn btn-primary">Ištrynti</a></td>
-			</tr>
-			<tr>
-				<th scope="row">Delta Air Lines</th>
-				<td colspan="2" class="table-active">Amerika</td>
-				<td><a href="/Avalinijos_edit" class="btn btn-danger">Redaguoti</a></td>
-				<td><a href="/Avalinijos_delete" class="btn btn-primary">Ištrynti</a></td>
-			</tr>
-			<tr>
-				<th scope="row"> Lufthansa Group</th>
-				<td colspan="2" class="table-active">Vokietija</td>
-				<td><a href="/Avalinijos_edit" class="btn btn-danger">Redaguoti</a></td>
-				<td><a href="/Avalinijos_delete" class="btn btn-primary">Ištrynti</a></td>
-			</tr>
+			@foreach ($airlines as $airline)
+					<tr>
+						<td scope="row"> {{ $airlines->name}}</td>
+						<td>{{ $airlines->country_name}}</td>
+						<td><a href="/Avalinijos_edit" class="btn btn-danger">Redaguoti</a></td>
+						<td><a href="/Avalinijos_delete" class="btn btn-primary">Ištrynti</a></td>
+					</tr>
+			@endforeach
 		</tbody>
 	</table>
   </div>

@@ -48,9 +48,9 @@
 				<th scope="row"></th>
 				<td colspan="2" class="table-active ">Pavadinimas</td>
 				<td>Šalis</td>
-				<td>Lokacija</td>
-				<td></td>
-				<td></td>
+				<td>ilguma</td>
+				<td>platuma</td>
+				<td>oro oustai</td>
 				<td></td>
 				<td></td>
 			</tr>
@@ -88,12 +88,5 @@
 	</table>
   </div>
 </div>
-
-
-
-
-
-
-
 </body>
 </html>

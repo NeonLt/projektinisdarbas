@@ -33,11 +33,11 @@ route::get('/Avalinijos', [AirlinerController::class, 'index']);
 route::get('/Salys', [CountriesController::class, 'index']);
 
 
-Route::get('/Salys', [CountriesController::class, 'show']);
+// Route::get('/Salys', [CountriesController::class, 'show']);
 Route::get('/salys_New', [CountriesController::class,'create']);
 Route::get('/salys_edit/{countries}', [CountriesController::class, 'edit']);
 Route::get('/salys_delete/{countries}', [CountriesController::class, 'destroy']);
-Route::post('/Salys', [CountriesController::class, 'store']);
+Route::post('/salys_New', [CountriesController::class, 'store']);
 
 
 Route::get('/oro_linijos', [AirlinesController::class, 'show']);
@@ -49,8 +49,8 @@ Route::post('/oro_linijos', [AirlinesController::class, 'store']);
 
 Route::get('/Avalinijos', [AirportsController::class, 'show']);
 Route::get('/Avalinijos_New', [AirportsController::class,'create']);
-Route::get('/Avalinijos_edit/{airlines}', [AirportsController::class, 'edit']);
-Route::get('/Avalinijos_delete/{airlines}', [AirportsController::class, 'destroy']);
+Route::get('/Avalinijos_edit/{airports}', [AirportsController::class, 'edit']);
+Route::get('/Avalinijos_delete/{airports}', [AirportsController::class, 'destroy']);
 Route::post('/Avalinijos', [AirportsController::class, 'store']);
 
 

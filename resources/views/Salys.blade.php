@@ -37,28 +37,18 @@
         <tbody>
           <tr class="table-active">
             <th scope="row">Šalis</th>
-            <td colspan="2" class="table-active">Šalies kodas (ISO)</td>
+            <th colspan="2" class="table-active">Šalies kodas (ISO)</th>
             <th scope="row"></th>
             <th scope="row"></th>
           </tr>
+          @foreach($salys as $salis)
           <tr>
-            <th scope="row">Amerika</th>
-            <td colspan="2" class="table-active">ISO 3166-2:US</td>
+            <td scope="row">{{ $salis->name }}</td>
+            <td colspan="2" class="table-active">{{ $salis->ISO }}</td>
             <td><a href="/salys_edit" class="btn btn-danger">Redaguoti</a></td>
-            <td><a href="/salys_delete" class="btn btn-primary">Ištrynti</a></td>
+            <td><a href="/salys_delete" class="btn btn-primary">Ištrinti</a></td>
           </tr>
-          <tr>
-            <th scope="row">Kinija</th>
-            <td colspan="2" class="table-active">ISO 3166-2:CN</td>
-            <td><a href="/salys_edit" class="btn btn-danger">Redaguoti</a></td>
-            <td><a href="/salys_delete" class="btn btn-primary">Ištrynti</a></td>
-          </tr>
-          <tr>
-            <th scope="row">Vokietija</th>
-            <td colspan="2" class="table-active ">ISO 3166-2:DE</td>
-            <td><a href="/salys_edit" class="btn btn-danger">Redaguoti</a></td>
-            <td><a href="/salys_delete" class="btn btn-primary">Ištrynti</a></td>
-          </tr>
+          @endforeach
         </tbody>
       </table>
     </div>

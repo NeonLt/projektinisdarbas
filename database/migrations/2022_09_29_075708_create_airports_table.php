@@ -20,7 +20,7 @@ class CreateAirportsTable extends Migration
             $table->string('country_name');
             $table->decimal('latitude');
             $table->decimal('longtitude');
-            $table->foreignId('country_id');
+            //$table->foreignId('country_id');
         });
     }
 

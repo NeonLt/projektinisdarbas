@@ -8,7 +8,8 @@ use App\Http\Requests\UpdateAirlineRequest;
 use App\Models\Airlines;
 use App\Policies\AirlinesPolicy;
 
-class AirlineController extends Controller
+
+class AirlinesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +18,9 @@ class AirlineController extends Controller
      */
     public function index()
     {
-        return view('Avialinijos');
+        $airlines = Airlines::all();
+
+        return view('oro_linijos', compact('airlines'));
     }
 
     /**
@@ -27,7 +30,7 @@ class AirlineController extends Controller
      */
     public function create()
     {
-        return view('Avialinijos_New');
+        return view('oro_linijos_New');
     }
 
     /**
@@ -39,15 +42,15 @@ class AirlineController extends Controller
     public function store(StoreairlineRequest $request)
     {
         $validate = $request->validate([
-            'name' => 'required|unique:name|max:100',
-            'country_id' => 'required|unique:country_id|max:100',
+            'name' => 'required|max:100',
+            'country_id' => 'required|max:100',
         ]);
 
         airlines::create([
             'name' => request('name'),
             'country_id' => request('country_id'),
         ]);
-        return redirect('/Avialinijos');
+        return redirect('/oro_linijos');
     }
 
     /**
@@ -58,7 +61,7 @@ class AirlineController extends Controller
      */
     public function show(airlines $airlines)
     {
-        return view('Avialinijos', compact('airlines'));
+        //return view('oro_linijos', compact('airlines'));
     }
 
     /**
@@ -69,7 +72,7 @@ class AirlineController extends Controller
      */
     public function edit(airlines $airlines)
     {
-        return view('Avialinijos', compact('airlines'));
+        return view('oro_linijos', compact('airlines'));
     }
 
     /**
@@ -86,8 +89,8 @@ class AirlineController extends Controller
             'country_id' => 'required|unique:country_id|max:100',
         ]);
 
-        countries::where('id', $airlines->id)->update($request->only(['name', 'country_id']));
-        return redirect('/Avialinijos');
+        Airlines::where('id', $airlines->id)->update($request->only(['name', 'country_id']));
+        return redirect('/oro_linijos');
     }
 
     /**
@@ -100,6 +103,6 @@ class AirlineController extends Controller
     {
         $airlines->delete();
 
-        return redirect('/Avialinijos');
+        return redirect('/oro_linijos');
     }
 }

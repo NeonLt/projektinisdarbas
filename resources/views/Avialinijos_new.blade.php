@@ -24,7 +24,7 @@
 		</div>
 	</nav>
 	<div class="container-fluid mt-3">
-	<form action method="post">
+	<form action="/Avialinijos_store" method="post">
 		@csrf
 		<div class="text-center">
 			<h1 class="text-primary">Sukurkitę naują avalinija</h1> 
@@ -32,7 +32,20 @@
 		<hr>
 		<p>Pavadinimas</p>
 		<div class="input-group mb-3">
-			<input type="text" name='' class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" aria-label="Select country">
+			<input type="text" name='name' id="name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+		</div>
+		
+		<div class=" mb-3">
+			<label class="form-label" for="country_name">Šalis</label>
+			<input type="text" name='country_name' id="country_name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+		</div>
+		<div class="mb-3">
+			<label class="form-label"  for="latitude">platuma</label>
+			<input type="text" name='latitude' id="latitude" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+		</div>
+		<div class="mb-3">
+			<label class="form-label"  for="longtitude">ilguma</label>
+			<input type="text" name='longtitude' id="longtitude" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
 		</div>
 		<hr>
 		@if ($errors->any())

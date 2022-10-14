@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\airports;
+use App\Models\Airports;
 use App\Http\Requests\StoreairportsRequest;
 use App\Http\Requests\UpdateairportsRequest;
+use App\Models\countries;
 
 class AirportsController extends Controller
 {
@@ -15,7 +16,9 @@ class AirportsController extends Controller
      */
     public function index()
     {
-        return view('Avalinijos');
+        $airports = Airports::all();
+
+        return view('Avialinijos', compact('airports'));
     }
 
     /**
@@ -25,7 +28,7 @@ class AirportsController extends Controller
      */
     public function create()
     {
-        return view('Avalinijos_New');
+        return view('Avialinijos_new');
     }
 
     /**
@@ -37,11 +40,11 @@ class AirportsController extends Controller
     public function store(StoreairportsRequest $request)
     {
         $validate = $request->validate([
-            'name' => 'required|unique:countries|max:100',
-            'country_name' => 'required|unique:countries|max:100',
-            'latitude' => 'required|unique:airports|max:100',
-            'longtitude' => 'required|unique:airports|max:100',
-            'country_id' =>  'required|unique:airports|max:100',
+            'name' => 'required|max:100',
+            'country_name' => 'required|max:100',
+            'latitude' => 'required|max:100',
+            'longtitude' => 'required|max:100',
+            //'country_id' =>  'required|max:100',
         ]);
 
         airports::create([
@@ -49,9 +52,9 @@ class AirportsController extends Controller
             'country_name' => request('country_name'),
             'latitude' => request('latitude'),
             'longtitude' => request('longtitude'),
-            'country_id' => request('country_id'),
+            //'country_id' => request('country_id'),
         ]);
-        return redirect('/Avalinijos');
+        return redirect('/Avialinijos');
     }
 
     /**
@@ -62,7 +65,7 @@ class AirportsController extends Controller
      */
     public function show(airports $airports)
     {
-        return view('Avalinijos', compact('airports'));
+        //return view('Avialinijos', compact('airports'));
     }
 
     /**
@@ -73,7 +76,7 @@ class AirportsController extends Controller
      */
     public function edit(airports $airports)
     {
-        return view('Avalinijos_edit', compact('airports'));
+        return view('Avialinijos_edit', compact('airports'));
     }
 
     /**
@@ -86,15 +89,15 @@ class AirportsController extends Controller
     public function update(UpdateairportsRequest $request, airports $airports)
     {
         $request->validate([
-            'name' => 'required|unique:countries|max:100',
-            'country_name' => 'required|unique:countries|max:100',
-            'latitude' => 'required|unique:countries|max:100',
-            'longtitude' => 'required|unique:countries|max:100',
-            'country_id' => 'required|unique:countries|max:100',
+            'name' => 'required|max:100',
+            'country_name' => 'required|max:100',
+            'latitude' => 'required|max:100',
+            'longtitude' => 'required|max:100',
+            'country_id' => 'required|max:100',
         ]);
 
-        countries::where('id', $countries->id)->update($request->only(['name', 'country_name', 'latitude', 'longtitude', 'country_id']));
-        return redirect('/Avalinijos');
+        Airports::where('id', $airports->id)->update($request->only(['name', 'country_name', 'latitude', 'longtitude', 'country_id']));
+        return redirect('/Avialinijos');
     }
 
     /**
@@ -107,6 +110,6 @@ class AirportsController extends Controller
     {
         $airports->delete();
 
-        return redirect('/Avalinijos');
+        return redirect('/Avialinijos_delete');
     }
 }

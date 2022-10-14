@@ -17,13 +17,13 @@
 				<ul class="navbar-nav">
 					<li class="nav-item"> <a class="nav-link active" aria-current="page" href="/">Oro Linijos</a> </li>
 					<li class="nav-item"> <a class="nav-link active" href="/Salys">Šalys</a> </li>
-					<li class="nav-item"> <a class="nav-link active" href="/Avalinijos">Avalinijos</a> </li>
+					<li class="nav-item"> <a class="nav-link active" href="/Avialinijos">Avalinijos</a> </li>
 				</ul>
 			</div>
 		</div>
 	</nav>
   <div class="container-fluid mt-3">
-	<div class="text-center"> <a href="/Avalinijos_New" class="btn" style="background-color:rgba(189, 82, 255, 0.98);">Pridėti nauja Avalinija</a> </div>
+	<div class="text-center"> <a href="/Avialinijos_new" class="btn" style="background-color:rgba(189, 82, 255, 0.98);">Pridėti nauja Avalinija</a> </div>
 	<div class="container text-center">
 		<div class="row align-items-center">
 			<div class="col mt-3">
@@ -33,15 +33,17 @@
 	<table class="table table-dark">
 		<tbody>
 			<tr class="table-active">
-				<th scope="row">Avalinijos</th>
-				<th colspan="2" class="table-active">Šalys</th>
+				<th scope="row">Pavadinimas</th>
+				<th class="table-active">Šalys</th>
+				<th></th>
+				<th></th>
 			</tr>
-			@foreach ($airlines as $airline)
+			@foreach ($airports as $airport)
 					<tr>
-						<td scope="row"> {{ $airlines->name}}</td>
-						<td>{{ $airlines->country_name}}</td>
-						<td><a href="/Avalinijos_edit" class="btn btn-danger">Redaguoti</a></td>
-						<td><a href="/Avalinijos_delete" class="btn btn-primary">Ištrynti</a></td>
+						<td scope="row"> {{ $airport->name}}</td>
+						<td>{{ $airport->country_name}}</td>
+						<td></td>
+						<td><a href="/Avialinijos_delete" class="btn btn-primary">Ištrynti</a><a href="/Avialinijos_edit" class="btn btn-danger">Redaguoti</a></td>
 					</tr>
 			@endforeach
 		</tbody>

@@ -29,7 +29,7 @@ Route::get('/', function () {
 });
 
 route::get('/oro_linijos', [AirportsController::class, 'index']);
-route::get('/Avalinijos', [AirlinerController::class, 'index']);
+route::get('/Avialinijos', [AirlinesController::class, 'index']);
 route::get('/Salys', [CountriesController::class, 'index']);
 
 
@@ -40,18 +40,18 @@ Route::get('/salys_delete/{countries}', [CountriesController::class, 'destroy'])
 Route::post('/salys_New', [CountriesController::class, 'store']);
 
 
-Route::get('/oro_linijos', [AirlinesController::class, 'show']);
-Route::get('/oro_linijos_add', [AirlinesController::class,'create']);
+Route::get('/oro_linijos', [AirlinesController::class, 'index']);
+Route::get('/oro_linijos_New', [AirlinesController::class,'create']);
 Route::get('/oro_linijos_edit/{airlines}', [AirlinesController::class, 'edit']);
 Route::get('/oro_linijos_istrynti/{airlines}', [AirlinesController::class, 'destroy']);
-Route::post('/oro_linijos', [AirlinesController::class, 'store']);
+Route::post('/oro_linijos_store', [AirlinesController::class, 'store']);
 
 
-Route::get('/Avalinijos', [AirportsController::class, 'show']);
-Route::get('/Avalinijos_New', [AirportsController::class,'create']);
-Route::get('/Avalinijos_edit/{airports}', [AirportsController::class, 'edit']);
-Route::get('/Avalinijos_delete/{airports}', [AirportsController::class, 'destroy']);
-Route::post('/Avalinijos', [AirportsController::class, 'store']);
+Route::get('/Avialinijos', [AirportsController::class, 'index']);
+Route::get('/Avialinijos_new', [AirportsController::class,'create']);
+Route::get('/Avialinijos_edit/{airports}', [AirportsController::class, 'edit']);
+Route::get('/Avialinijos_delete/{airports}', [AirportsController::class, 'destroy']);
+Route::post('/Avialinijos_store', [AirportsController::class, 'store']);
 
 
 //Route::post('/countries/update/', function()

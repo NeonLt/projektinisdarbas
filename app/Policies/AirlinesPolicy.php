@@ -28,7 +28,7 @@ class AirlinesPolicy
      * @param  \App\Models\Airline  $airlines
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Airline $airlines)
+    public function view(User $user, Airlines $airlines)
     {
         //
     }
@@ -51,7 +51,7 @@ class AirlinesPolicy
      * @param  \App\Models\Airline  $airlines
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Airline $airlines)
+    public function update(User $user, Airlines $airlines)
     {
         //
     }
@@ -63,7 +63,7 @@ class AirlinesPolicy
      * @param  \App\Models\Airline  $airlines
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Airline $airlines)
+    public function delete(User $user, Airlines $airlines)
     {
         //
     }
@@ -75,7 +75,7 @@ class AirlinesPolicy
      * @param  \App\Models\Airline  $airlines
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Airline $airlines)
+    public function restore(User $user, Airlines $airlines)
     {
         //
     }
@@ -87,7 +87,7 @@ class AirlinesPolicy
      * @param  \App\Models\Airline  $airlines
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Airline $airlines)
+    public function forceDelete(User $user, Airlines $airlines)
     {
         //
     }

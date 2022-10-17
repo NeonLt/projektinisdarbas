@@ -46,7 +46,7 @@
             <td scope="row">{{ $salis->name }}</td>
             <td >{{ $salis->ISO }}</td>
             <td></td>
-            <td><a href="/salys_delete" class="btn btn-primary">Ištrinti</a><a href="/salys_edit" class="btn btn-danger">Redaguoti</a></td>
+            <td><a href="/salys_delete/{{$salis->id}}" class="btn btn-primary">Ištrinti</a><a href="/salys_edit/{{$salis->id}}" class="btn btn-danger">Redaguoti</a></td>
           </tr>
           @endforeach
         </tbody>

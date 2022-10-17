@@ -43,7 +43,7 @@
 						<td scope="row"> {{ $airport->name}}</td>
 						<td>{{ $airport->country_name}}</td>
 						<td></td>
-						<td><a href="/Avialinijos_delete" class="btn btn-primary">Ištrynti</a><a href="/Avialinijos_edit" class="btn btn-danger">Redaguoti</a></td>
+						<td><a href="/Avialinijos_delete/{{$airport->id}}" class="btn btn-primary">Ištrynti</a><a href="/Avialinijos_edit/{{$airport->id}}" class="btn btn-danger">Redaguoti</a></td>
 					</tr>
 			@endforeach
 		</tbody>

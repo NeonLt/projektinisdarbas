@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\countries;
 use App\Http\Requests\StorecountriesRequest;
 use App\Http\Requests\UpdatecountriesRequest;
-// use GuzzleHttp\Psr7\Request;
 use Illuminate\Http\Request;
 
 class CountriesController extends Controller

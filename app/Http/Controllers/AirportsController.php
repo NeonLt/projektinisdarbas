@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Airports;
 use App\Http\Requests\StoreairportsRequest;
 use App\Http\Requests\UpdateairportsRequest;
-use App\Models\countries;
+use App\Policies\AirportsPolicy;
+
+
 
 class AirportsController extends Controller
 {
@@ -110,6 +112,6 @@ class AirportsController extends Controller
     {
         $airports->delete();
 
-        return redirect('/Avialinijos_delete');
+        return redirect('/Avialinijos');
     }
 }

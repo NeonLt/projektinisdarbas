@@ -17,7 +17,7 @@
 				<ul class="navbar-nav">
 					<li class="nav-item"> <a class="nav-link active" aria-current="page" href="/oro_linijos">Oro Linijos</a> </li>
 					<li class="nav-item"> <a class="nav-link" href="/Salys">Šalys</a> </li>
-					<li class="nav-item"> <a class="nav-link" href="/Avalinijos">Avalinijos</a> </li>
+					<li class="nav-item"> <a class="nav-link" href="/Avialinijos">Avialinijos</a> </li>
 				</ul>
 				<p class="text-center"></p>
 			</div>

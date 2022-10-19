@@ -18,7 +18,7 @@ use Psr\Http\Message\ServerRequestInterface;
 |
 */
 
- 
+
 Route::get('/', function (ServerRequestInterface $request) {
     //
 });
@@ -34,23 +34,25 @@ route::get('/Salys', [CountriesController::class, 'index']);
 
 
 // Route::get('/Salys', [CountriesController::class, 'show']);
-Route::get('/salys_New', [CountriesController::class,'create']);
+Route::get('/salys_New', [CountriesController::class, 'create']);
 Route::get('/salys_edit/{countries}', [CountriesController::class, 'edit']);
-Route::get('/salys_delete/{countries}', [CountriesController::class, 'destroy']);
+Route::get('/salys_delete/{countries}', [CountriesController::class, 'delete']);
+Route::get('/salys_delete/{countries}/confirm', [CountriesController::class, 'destroy']);
 Route::post('/salys_New', [CountriesController::class, 'store']);
 
 
 Route::get('/oro_linijos', [AirlinesController::class, 'index']);
-Route::get('/oro_linijos_New', [AirlinesController::class,'create']);
+Route::get('/oro_linijos_New', [AirlinesController::class, 'create']);
 Route::get('/oro_linijos_edit/{airlines}', [AirlinesController::class, 'edit']);
 Route::get('/oro_linijos_istrynti/{airlines}', [AirlinesController::class, 'destroy']);
 Route::post('/oro_linijos_store', [AirlinesController::class, 'store']);
 
 
 Route::get('/Avialinijos', [AirportsController::class, 'index']);
-Route::get('/Avialinijos_new', [AirportsController::class,'create']);
+Route::get('/Avialinijos_new', [AirportsController::class, 'create']);
 Route::get('/Avialinijos_edit/{airports}', [AirportsController::class, 'edit']);
-Route::get('/Avialinijos_delete/{airports}', [AirportsController::class, 'destroy']);
+Route::get('/Avialinijos_delete/{airports}', [AirportsController::class, 'delete']);
+Route::get('/Avialinijos_delete/{airports}/confirm', [AirportsController::class, 'destroy']);
 Route::post('/Avialinijos_store', [AirportsController::class, 'store']);
 
 
@@ -65,5 +67,3 @@ Route::post('/Avialinijos_store', [AirportsController::class, 'store']);
 // Route::get('/Avalinijos', function () {
 //     return view('Avalinijos');
 //  });
-
-

@@ -17,7 +17,7 @@
 				<ul class="navbar-nav">
 					<li class="nav-item"> <a class="nav-link active" aria-current="page" href="/">Oro Linijos</a> </li>
 					<li class="nav-item"> <a class="nav-link active" href="/Salys">Šalys</a> </li>
-					<li class="nav-item"> <a class="nav-link active" href="/Avialinijos">Avalinijos</a> </li>
+					<li class="nav-item"> <a class="nav-link active" href="/Avialinijos">Avialinijos</a> </li>
 				</ul>
 			</div>
 		</div>
@@ -42,12 +42,15 @@
             <th scope="row"></th>
           </tr>
           @foreach($salys as $salis)
+
+
           <tr>
             <td scope="row">{{ $salis->name }}</td>
             <td >{{ $salis->ISO }}</td>
             <td></td>
-            <td><a href="/salys_delete/{{$salis->id}}" class="btn btn-primary">Ištrinti</a><a href="/salys_edit/{{$salis->id}}" class="btn btn-danger">Redaguoti</a></td>
-          </tr>
+            <td><a href="/salys_delete/{{$salis->id}}" class="btn btn-primary">Ištrinti</a>
+            <a href="/salys_edit/{{$salis->id}}" class="btn btn-danger">Redaguoti</a></td>
+            </tr>
           @endforeach
         </tbody>
       </table>

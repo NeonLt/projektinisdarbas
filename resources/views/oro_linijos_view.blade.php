@@ -26,7 +26,7 @@
           <a class="nav-link active" href="/Salys">Šalys</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="/Avialinijos">Avalinijos</a>
+          <a class="nav-link active" href="/Avialinijos">Avialinijos</a>
         </li>
       </ul>
     </div>

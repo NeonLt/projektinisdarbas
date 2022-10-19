@@ -17,18 +17,23 @@
 				<ul class="navbar-nav">
 					<li class="nav-item"> <a class="nav-link active" aria-current="page" href="/oro_linijos">Oro Linijos</a> </li>
 					<li class="nav-item"> <a class="nav-link" href="/Salys">Šalys</a> </li>
-					<li class="nav-item"> <a class="nav-link" href="/Avalinijos">Avalinijos</a> </li>
+					<li class="nav-item"> <a class="nav-link" href="/Avialinijos">Avialinijos</a> </li>
 				</ul>
 				<p class="text-center"></p>
 			</div>
 		</div>
 	</nav>
+
+
+
+
+
 	<div class="text-center">
-		<h1>Ar tikrai norite ištrynti x elementa</h1>
-		<p>šis veiksmas ištryns viska kas susije su x elementu</p>
+		<h1>Ar tikrai norite ištrynti {{$airports->name}} elementa</h1>
+		<p>šis veiksmas ištryns viska kas susije su {{$airports->name}} elementu</p>
 		<div class="btn-group" role="group" aria-label="Basic mixed styles example">
-			<button type="button" href="#" class="btn btn-success">taip</button>
-			<button type="button" href="#" class="btn btn-danger">ne</button>
+			<a href="/Avialinijos_delete/{{$airports->id}}/confirm" class="btn btn-success">taip</a>
+			<a  href="/Avialinijos" class="btn btn-danger">ne</a>
 		</div>
 	</div>
 </body>

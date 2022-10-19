@@ -103,6 +103,20 @@ class AirportsController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\airports  $airports
+     * @return \Illuminate\Http\Response
+     */
+    public function delete(Airports $airports)
+    {
+
+        return view('Avialinijos_delete', compact('airports'));
+
+    }
+
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\airports  $airports

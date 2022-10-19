@@ -11,7 +11,7 @@
 
 
 
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand" href="#"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +26,7 @@
           <a class="nav-link" href="/Salys">Šalys</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/Avalinijos">Avalinijos</a>
+          <a class="nav-link" href="/Avialinijos">Avialinijos</a>
         </li>
       </ul>
  
@@ -35,13 +35,15 @@
   </div>
 </nav>
 
+  
+
 <div class="text-center ">
-  <h1>Ar tikrai norite ištrynti x elementa</h1>
-  <p>šis veiksmas ištryns viska kas susije su x elementu</p>
-<div   class="btn-group"   role="group"  aria-label="Basic mixed styles example" >
-  <button type="button" href="#" class="btn btn-success">taip</button>
-  <button type="button" href="#" class="btn btn-danger">ne</button>
-</div>
+  <h1>Ar tikrai norite ištrynti {{$countries->name}} elementa</h1>
+  <p>šis veiksmas ištryns viska kas susije su {{$countries->name}} elementu</p>
+  <div   class="btn-group"   role="group"  aria-label="Basic mixed styles example" >
+      <a href="/salys_delete/{{$countries->id}}/confirm" class="btn btn-primary">Ištrinti</a>
+      <a type="button" href="/Salys" class="btn btn-danger">ne</a>
+  </div>
 </div>
 
 

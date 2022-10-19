@@ -27,7 +27,7 @@ class CountriesController extends Controller
      */
     public function create()
     {
-     return view('salys_New');
+        return view('salys_New');
     }
 
     /**
@@ -90,6 +90,21 @@ class CountriesController extends Controller
 
         countries::where('id', $countries->id)->update($request->only(['country', 'ISO']));
         return redirect('/Salys');
+    }
+
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\countries  $countries
+     * @return \Illuminate\Http\Response
+     */
+    public function delete(countries $countries)
+    {
+        
+
+        return view('salys_delete', compact('countries'));
+
     }
 
     /**

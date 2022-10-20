@@ -84,11 +84,11 @@ class CountriesController extends Controller
     public function update(UpdatecountriesRequest $request, countries $countries)
     {
         $request->validate([
-            'countries' => 'required|unique:countries|max:100',
+            'name' => 'required|unique:countries|max:100',
             'ISO' => 'required|unique:countries|min:3|max:3',
         ]);
 
-        countries::where('id', $countries->id)->update($request->only(['country', 'ISO']));
+        countries::where('id', $countries->id)->update($request->only(['name', 'ISO']));
         return redirect('/Salys');
     }
 

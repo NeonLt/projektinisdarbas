@@ -24,17 +24,21 @@
 	</nav>
 	<div class="container-fluid mt-3">
 	<form action method="post">
+
+
+
 		<div class="text-center">
-			<h1 class="text-primary">Pakoreguokite x avalinija</h1> </div>
+			<h1 class="text-primary">Pakoreguokite {{$airports -> name}} avalinija</h1> </div>
 		<hr>
 		<p>Pavadinimas</p>
 		<div class="input-group mb-3">
-			<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"> </div>
+			<input name="name" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"> </div>
 		<select class="form-select" aria-label="Select country">
 			<option selected>Pasirinkite šalį</option>
-			<option value="3"></option>
+			@foreach
+			<option name="country_name"></option>
 		</select>
-		<hr> <a href="#" class="btn btn-success">Sukurti</a> </form>
+		<hr> <button type="submit" class="btn btn-success">Sukurti</button> </form>
 	</div>
 </body>
 

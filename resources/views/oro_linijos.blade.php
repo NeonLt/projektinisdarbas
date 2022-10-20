@@ -54,23 +54,23 @@
 				<td>oro oustai</td>
 				<td></td>
 				<td></td>
-				<td></td>
 			</tr>
-			<tr>
-				<th scope="row">1</th>
-				<td colspan="2" >Delta Air Lines</td>
-				<td>Amerika</td>
-				<td>33.65656986865283, -84.4242803714317</td>
-				<td></td>
-				<td></td>
-				<td><a href="/oro_linijos_add" style="background-color: #38E54D" class="btn">Prideti avalinija</a></td>
-				<td><a href="/oro_linijos_istrynti" style="background-color: #FDFF00" class="btn">Ištrynkite avalinija</a></td>
-				<td><a href="/oro_linijos_edit" class="btn btn-danger">Redaguoti</a></td>
-				<td><a href="/oro_linijos_delete" class="btn btn-primary">Ištrynti</a></td>
-			</tr>
-		</tbody>
-	</table>
-  </div>
-</div>
+
+				<tr>
+					<th scope="row">1</th>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><a href="/oro_linijos_add" style="background-color: #38E54D" class="btn">Prideti avalinija</a></td>
+					<td><a href="/oro_linijos_istrynti" style="background-color: #FDFF00" class="btn">Ištrynkite avalinija</a></td>
+					<td><a href="/oro_linijos_edit" class="btn btn-danger">Redaguoti</a></td>
+					<td><a href="/oro_linijos_delete" class="btn btn-primary">Ištrynti</a></td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+	</div>
 </body>
 </html>

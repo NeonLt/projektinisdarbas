@@ -46,28 +46,23 @@
 		<tbody >
 			<tr class="table-active ">
 				<th scope="row"></th>
-				<td colspan="2">Pavadinimas</td>
+				<td>Pavadinimas</td>
 				<td>Šalis</td>
 				<td>lokacija</td>
-				<td></td>
-				<td></td>
-				<td>oro oustai</td>
-				<td></td>
-				<td></td>
+				<td>action</td>
 			</tr>
-
+			@foreach ($airlines as $airline)
 				<tr>
 					<th scope="row">1</th>
+					<td>{{ $airline->name}}</td>
+					<td>{{ $airline->country_name}}</td>
 					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td><a href="/oro_linijos_add" style="background-color: #38E54D" class="btn">Prideti avalinija</a></td>
-					<td><a href="/oro_linijos_istrynti" style="background-color: #FDFF00" class="btn">Ištrynkite avalinija</a></td>
-					<td><a href="/oro_linijos_edit" class="btn btn-danger">Redaguoti</a></td>
-					<td><a href="/oro_linijos_delete" class="btn btn-primary">Ištrynti</a></td>
+					<td><a href="/oro_linijos_add" style="background-color: #38E54D" class="btn">Prideti avalinija</a>
+					<a href="/oro_linijos_istrynti/{{$airline ->id}}" style="background-color: #FDFF00" class="btn">Ištrynkite avalinija</a>
+					<a href="/oro_linijos_edit/{{$airline ->id}}" class="btn btn-danger">Redaguoti</a>
+					<a href="/oro_linijos_delete" class="btn btn-primary">Ištrynti</a></td>
 				</tr>
+			@endforeach
 			</tbody>
 		</table>
 		</div>

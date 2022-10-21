@@ -25,7 +25,7 @@
 	</nav>
 	<div class="container-fluid mt-3">
 		
-		<form action='' method="post">
+		<form action='/oro_linijos_store' method="post">
 			@csrf
 			<div class="text-center">
 				<h1 class="text-primary">Sukurkitę naują šalį</h1>
@@ -33,17 +33,24 @@
 			<hr>
 			<p>Pavadinimas</p>
 			<div class="input-group mb-3">
-				<input type="text" name='name' class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+				<input type="text" name="name" id="name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
 			</div>
 			<p>Šalis</p>
 			<div class="input-group mb-3">
-			<select class="form-select" name="country_id">
+			<select name="country_name" id="country_name" class="form-select">
+
 		
-      				<option >Pasirinkite šalį</option>
-            	<option></option>
-            	<option>Poland</option>
+				<option disabled selected>Pasirinkite šalį</option>
+			 @foreach ($country as $salis)
 				
-          </select>
+      			
+            	<option value="{{ $salis->name }}">{{ $salis->name }}</option>
+			@endforeach
+		</select>
+		{{-- <div class="input-group mb-3">
+			<hr>
+			<input type="text" name="country_id" id="country_id" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+		</div> --}}
 			</div>
 			<hr>
 			@if ($errors->any())

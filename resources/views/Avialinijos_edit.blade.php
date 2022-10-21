@@ -23,22 +23,41 @@
 		</div>
 	</nav>
 	<div class="container-fluid mt-3">
-	<form action method="post">
-
-
-
-		<div class="text-center">
-			<h1 class="text-primary">Pakoreguokite {{$airports -> name}} avalinija</h1> </div>
-		<hr>
-		<p>Pavadinimas</p>
-		<div class="input-group mb-3">
-			<input name="name" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"> </div>
-		<select class="form-select" aria-label="Select country">
-			<option selected>Pasirinkite šalį</option>
-			@foreach
-			<option name="country_name"></option>
-		</select>
-		<hr> <button type="submit" class="btn btn-success">Sukurti</button> </form>
+		<form action="/Avialinijos/{{$airports -> id}}" method="post">
+			@csrf
+			<div class="text-center">
+				<h1 class="text-primary">Sukurkitę naują avalinija</h1> 
+			</div>
+			<hr>
+			<p>Pavadinimas</p>
+			<div class="input-group mb-3">
+				<input value="{{$airports ->name}}" type="text" name='name' id="name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+			</div>
+			
+			<div class=" mb-3">
+				<label class="form-label" for="country_name">Šalis</label>
+				<input value="{{$airports ->country_name}}" type="text" name='country_name' id="country_name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+			</div>
+			<div class="mb-3">
+				<label class="form-label"  for="latitude">platuma</label>
+				<input value="{{$airports ->latitude}}" type="text" name='latitude' id="latitude" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+			</div>
+			<div class="mb-3">
+				<label class="form-label"  for="longtitude">ilguma</label>
+				<input value="{{$airports ->longtitude}}" type="text" name='longtitude' id="longtitude" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+			</div>
+			<hr>
+			@if ($errors->any())
+					<div class="alert alert-danger">
+						<ul>
+							@foreach ($errors->all() as $error)
+								<li>{{ $error }}</li>
+							@endforeach
+						</ul>
+					</div>
+				@endif
+			 <button href="submit" class="btn btn-success">Sukurti</button> 
+			 </form>
 	</div>
 </body>
 

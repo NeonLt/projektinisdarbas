@@ -90,13 +90,6 @@ class AirportsController extends Controller
      */
     public function update(UpdateairportsRequest $request, airports $airports)
     {
-        $request->validate([
-            'name' => 'required|max:100',
-            'country_name' => 'required|max:100',
-            'latitude' => 'required|max:100',
-            'longtitude' => 'required|max:100',
-            'country_id' => 'required|max:100',
-        ]);
 
         Airports::where('id', $airports->id)->update($request->only(['name', 'country_name', 'latitude', 'longtitude', 'country_id']));
         return redirect('/Avialinijos');

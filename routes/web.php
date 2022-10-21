@@ -24,9 +24,7 @@ Route::get('/', function (ServerRequestInterface $request) {
 });
 
 
-Route::get('/', function () {
-    return view('oro_linijos');
-});
+
 
 route::get('/oro_linijos', [AirportsController::class, 'index']);
 route::get('/Avialinijos', [AirlinesController::class, 'index']);
@@ -41,7 +39,8 @@ Route::get('/salys_delete/{countries}/confirm', [CountriesController::class, 'de
 Route::post('/salys_New', [CountriesController::class, 'store']);
 Route::post('/salys_edit/{countries}', [CountriesController::class, 'update']);
 
-Route::get('/oro_linijos', [AirlinesController::class, 'index']);
+Route::get('/', [AirlinesController::class, 'index']);
+Route::get('/oro_linijos', [AirlinesController::class, 'show']);
 Route::get('/oro_linijos_New', [AirlinesController::class, 'create']);
 Route::get('/oro_linijos_edit/{airlines}', [AirlinesController::class, 'edit']);
 Route::get('/oro_linijos_istrynti/{airlines}', [AirlinesController::class, 'destroy']);

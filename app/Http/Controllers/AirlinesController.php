@@ -7,6 +7,7 @@ use App\Http\Requests\StoreAirlineRequest;
 use App\Http\Requests\UpdateAirlineRequest;
 use App\Models\Airlines;
 use App\Policies\AirlinesPolicy;
+use App\Models\countries;
 
 
 class AirlinesController extends Controller
@@ -30,7 +31,9 @@ class AirlinesController extends Controller
      */
     public function create()
     {
-        return view('oro_linijos_New');
+        $airlines = Airlines::all();
+
+        return view('oro_linijos_New', compact('airlines' ));
     }
 
     /**
@@ -43,14 +46,16 @@ class AirlinesController extends Controller
     {
         $validate = $request->validate([
             'name' => 'required|max:100',
-            'country_id' => 'required|max:100',
+            // 'country_id' => 'required|max:100',
+            'country_name' => 'required|max:100',
         ]);
 
         airlines::create([
             'name' => request('name'),
-            'country_id' => request('country_id'),
+            // 'country_id' => request('country_id'),
+            'country_name' => request('country_name'),
         ]);
-        return redirect('/oro_linijos');
+        return redirect('/');
     }
 
     /**
@@ -72,7 +77,10 @@ class AirlinesController extends Controller
      */
     public function edit(airlines $airlines)
     {
-        return view('oro_linijos', compact('airlines'));
+        $country = countries::all();
+        $airlines = Airlines::all();
+
+        return view('oro_linijos_edit', compact('country', 'airlines'));
     }
 
     /**
@@ -84,14 +92,25 @@ class AirlinesController extends Controller
      */
     public function update(UpdateAirlineRequest $request, airlines $airlines)
     {
-        $request->validate([
-            'name' => 'required|unique:name|max:100',
-            'country_id' => 'required|unique:country_id|max:100',
-        ]);
 
-        Airlines::where('id', $airlines->id)->update($request->only(['name', 'country_id']));
+        Airlines::where('id', $airlines->id)->update($request->only(['name',  'country_name']));
         return redirect('/oro_linijos');
     }
+
+
+      /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\airlines  $airports
+     * @return \Illuminate\Http\Response
+     */
+    public function delete(Airlines $airlines)
+    {
+
+        return view('oro_linijos_delete', compact('airlines'));
+
+    }
+
 
     /**
      * Remove the specified resource from storage.

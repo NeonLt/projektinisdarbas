@@ -45,7 +45,6 @@
 	<table class="table table-dark ">
 		<tbody >
 			<tr class="table-active ">
-				<th scope="row"></th>
 				<td>Pavadinimas</td>
 				<td>Šalis</td>
 				<td>lokacija</td>
@@ -53,14 +52,13 @@
 			</tr>
 			@foreach ($airlines as $airline)
 				<tr>
-					<th scope="row">1</th>
-					<td>{{ $airline->name}}</td>
-					<td>{{ $airline->country_name}}</td>
-					<td></td>
+					<td>{{$airline->name}}</td>
+					<td>{{$airline->country_name}}</td>
+					<td>{{$airports->latitude}} - {{$airports->longtitude}}</td>
 					<td><a href="/oro_linijos_add" style="background-color: #38E54D" class="btn">Prideti avalinija</a>
 					<a href="/oro_linijos_istrynti/{{$airline ->id}}" style="background-color: #FDFF00" class="btn">Ištrynkite avalinija</a>
 					<a href="/oro_linijos_edit/{{$airline ->id}}" class="btn btn-danger">Redaguoti</a>
-					<a href="/oro_linijos_delete" class="btn btn-primary">Ištrynti</a></td>
+					<a href="/oro_linijos_delete/{{$airline ->id}}" class="btn btn-primary">Ištrynti</a></td>
 				</tr>
 			@endforeach
 			</tbody>

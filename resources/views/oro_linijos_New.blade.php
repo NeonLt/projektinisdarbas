@@ -41,10 +41,10 @@
 
 		
 				<option disabled selected>Pasirinkite šalį</option>
-			 @foreach ($country as $salis)
+			 
 				
-      			
-            	<option value="{{ $salis->name }}">{{ $salis->name }}</option>
+      			@foreach ($country as $salys)
+            	<option value="{{ $salys->name }}">{{ $salys->name }}</option>
 			@endforeach
 		</select>
 		{{-- <div class="input-group mb-3">

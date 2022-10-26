@@ -43,10 +43,12 @@ Route::get('/', [AirlinesController::class, 'index']);
 Route::get('/oro_linijos', [AirlinesController::class, 'show']);
 Route::get('/oro_linijos_New', [AirlinesController::class, 'create']);
 Route::get('/oro_linijos_edit/{airlines}', [AirlinesController::class, 'edit']);
-Route::get('/oro_linijos_istrynti/{airlines}', [AirlinesController::class, 'destroy']);
+Route::get('/oro_linijos_delete/{airlines}', [AirlinesController::class, 'delete']);
+Route::get('/oro_linijos_istrynti/{airlines}', [AirlinesController::class, 'confirm']);
+Route::get('/oro_linijos_istrynti/{airlines}/confirm', [AirlinesController::class, 'destroy']);
 Route::post('/oro_linijos_store', [AirlinesController::class, 'store']);
 Route::post('/oro_linijos/{airlines}', [AirlinesController::class, 'update']);
-
+Route::post('/oro_linijos_ieskoti', [AirlinesController::class, 'search']);
 
 
 Route::get('/Avialinijos', [AirportsController::class, 'index']);

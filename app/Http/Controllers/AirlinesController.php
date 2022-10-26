@@ -32,8 +32,9 @@ class AirlinesController extends Controller
     public function create()
     {
         $airlines = Airlines::all();
+        $country = countries::all();
 
-        return view('oro_linijos_New', compact('airlines' ));
+        return view('oro_linijos_New', compact('airlines', 'country' ));
     }
 
     /**
@@ -98,6 +99,20 @@ class AirlinesController extends Controller
     }
 
 
+        /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\airlines  $airports
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Airlines $airlines)
+    {
+
+        return view('oro_linijos_ieskoti');
+
+    }
+
+
       /**
      * Display the specified resource.
      *
@@ -111,6 +126,19 @@ class AirlinesController extends Controller
 
     }
 
+       /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\airlines  $airports
+     * @return \Illuminate\Http\Response
+     */
+    public function confirm(Airlines $airlines)
+    {
+
+        return view('oro_linijos_istrynti', compact('airlines'));
+
+    }
+
 
     /**
      * Remove the specified resource from storage.
@@ -121,7 +149,7 @@ class AirlinesController extends Controller
     public function destroy(airlines $airlines)
     {
         $airlines->delete();
-
+            
         return redirect('/oro_linijos');
     }
 }

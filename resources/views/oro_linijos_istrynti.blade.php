@@ -25,7 +25,9 @@
 	<div class="container-fluid mt-3">
 	<form action method="post">
 		<div class="text-center">
-			<h1 class="text-primary">Ištrynkite x avalinija</h1> </div>
+		@foreach ($airports as $airport)
+			<h1 class="text-primary">Ištrynkite avialinija iš {{$airports->name}} avalinija</h1> </div>
+			@endforeach
 		<hr>
 		<select class="form-select" aria-label="Select country">
 			<option selected>Pasirinkite avalinija</option>

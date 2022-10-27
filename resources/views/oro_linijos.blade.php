@@ -54,7 +54,9 @@
 				<tr>
 					<td>{{$airline->name}}</td>
 					<td>{{$airline->country_name}}</td>
-					<td>{{$airports->latitude}} - {{$airports->longtitude}}</td>
+					@foreach ($airports as $airport)
+					<td>{{$airport->latitude}} - {{$airport->longtitude}}</td>
+					@endforeach
 					<td><a href="/oro_linijos_add" style="background-color: #38E54D" class="btn">Prideti avalinija</a>
 					<a href="/oro_linijos_istrynti/{{$airline ->id}}" style="background-color: #FDFF00" class="btn">Ištrynkite avalinija</a>
 					<a href="/oro_linijos_edit/{{$airline ->id}}" class="btn btn-danger">Redaguoti</a>

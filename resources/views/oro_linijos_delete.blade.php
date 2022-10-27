@@ -26,7 +26,7 @@
 		<h1>Ar tikrai norite ištrynti {{$airlines -> country_name}} oro uostas</h1>
 		<p>šis veiksmas ištryns viska kas susije su {{$airlines -> country_name}} oro uostas</p>
 		<div class="btn-group" role="group" aria-label="Basic mixed styles example">
-			<a href="/airline/{{$airlines->id}}/confirm" class="btn btn-success">Ištrinti</a>
+			<a href="/oro_linijos_istrynti/{{$airlines->id}}/confirm" class="btn btn-success">Ištrinti</a>
 			<a type="button" href="/" class="btn btn-danger">ne</a>
 		</div>
 	</div>

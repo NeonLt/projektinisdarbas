@@ -23,7 +23,7 @@
 		</div>
 	</nav>
 	@foreach ($airlines as $airline)
-		
+
 	@endforeach
 	<div class="container-fluid mt-3">
 	<form action="/oro_linijos/{{$airline -> id}}" method="post">
@@ -32,17 +32,16 @@
 		<div class="text-center">
 			<h1 class="text-primary">Pakoreguokite {{$airline ->name}} oro linija</h1> </div>
 		<hr>
-		<p>Pavadinimas</p>
 		<div class="mb-3">
-			<label class="form-label"  for="longtitude">ilguma</label>
-			<input value="{{$airline ->name}}" type="text" name='longtitude' id="longtitude" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+			<label class="form-label"  for="name">Pavadinimas</label>
+			<input value="{{$airline ->name}}" type="text" name='name' id="name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
 		</div>
-		
+		<select name="country_name" id="country_name" class="form-select">
 		<option disabled selected>Pasirinkite šalį</option>
 		@foreach ($country as $salis)
-				
-      			
-            	<option value="{{ $salis->name }}">{{ $salis->name }}</option>
+
+
+      <option value="{{ $salis->name }}">{{ $salis->name }}</option>
 			@endforeach
 		</select>
 				@if ($errors->any())
@@ -54,8 +53,7 @@
 						</ul>
 					</div>
 				@endif
-			<hr> 
-			<button href="submit" class="btn btn-success">Sukurti</button> 
+			<button type="submit" class="btn btn-success mt-4">Redaguoti</button>
 	 </form>
 	</div>
 </body>

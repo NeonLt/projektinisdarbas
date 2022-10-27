@@ -42,6 +42,7 @@ Route::post('/salys_edit/{countries}', [CountriesController::class, 'update']);
 Route::get('/', [AirlinesController::class, 'index']);
 Route::get('/oro_linijos', [AirlinesController::class, 'show']);
 Route::get('/oro_linijos_New', [AirlinesController::class, 'create']);
+Route::get('/oro_linijos_add', [AirlinesController::class, 'add']);
 Route::get('/oro_linijos_edit/{airlines}', [AirlinesController::class, 'edit']);
 Route::get('/oro_linijos_delete/{airlines}', [AirlinesController::class, 'delete']);
 Route::get('/oro_linijos_istrynti/{airlines}', [AirlinesController::class, 'confirm']);

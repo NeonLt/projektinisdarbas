@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateAirlineRequest;
 use App\Models\Airlines;
 use App\Policies\AirlinesPolicy;
 use App\Models\countries;
+use App\Models\Airports;
 
 
 class AirlinesController extends Controller
@@ -20,8 +21,9 @@ class AirlinesController extends Controller
     public function index()
     {
         $airlines = Airlines::all();
+        $airports = Airports::all();
 
-        return view('oro_linijos', compact('airlines'));
+        return view('oro_linijos', compact('airlines', 'airports'));
     }
 
     /**
@@ -35,6 +37,19 @@ class AirlinesController extends Controller
         $country = countries::all();
 
         return view('oro_linijos_New', compact('airlines', 'country' ));
+    }
+
+     /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function add()
+    {
+        $airlines = Airlines::all();
+        $country = countries::all();
+
+        return view('oro_linijos_add', compact('airlines', 'country' ));
     }
 
     /**
@@ -95,7 +110,7 @@ class AirlinesController extends Controller
     {
 
         Airlines::where('id', $airlines->id)->update($request->only(['name',  'country_name']));
-        return redirect('/oro_linijos');
+        return redirect('/');
     }
 
 
@@ -134,8 +149,11 @@ class AirlinesController extends Controller
      */
     public function confirm(Airlines $airlines)
     {
+        $airlines = Airlines::all();
+        $airports = Airports::all();
+        
 
-        return view('oro_linijos_istrynti', compact('airlines'));
+        return view('oro_linijos_istrynti', compact('airlines', 'airports'));
 
     }
 
@@ -150,6 +168,6 @@ class AirlinesController extends Controller
     {
         $airlines->delete();
             
-        return redirect('/oro_linijos');
+        return redirect('/');
     }
 }

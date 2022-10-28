@@ -9,5 +9,5 @@ class Airports extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'country_name', 'latitude', 'longtitude', 'country_id'];
+    protected $fillable = ['name_ava', 'country_name', 'latitude', 'longtitude', 'country_id', 'airline_pavadinimas'];
 }

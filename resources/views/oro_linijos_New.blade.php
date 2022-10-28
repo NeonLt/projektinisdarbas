@@ -28,7 +28,7 @@
 		<form action='/oro_linijos_store' method="post">
 			@csrf
 			<div class="text-center">
-				<h1 class="text-primary">Sukurkitę naują šalį</h1>
+				<h1 class="text-primary">Sukurkitę naują oro_linija</h1>
 			</div>
 			<hr>
 			<p>Pavadinimas</p>

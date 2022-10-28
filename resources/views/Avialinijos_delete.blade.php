@@ -29,8 +29,8 @@
 
 
 	<div class="text-center">
-		<h1>Ar tikrai norite ištrynti {{$airports->name}} elementa</h1>
-		<p>šis veiksmas ištryns viska kas susije su {{$airports->name}} elementu</p>
+		<h1>Ar tikrai norite ištrynti {{$airports->name_ava}} elementa</h1>
+		<p>šis veiksmas ištryns viska kas susije su {{$airports->name_ava}} elementu</p>
 		<div class="btn-group" role="group" aria-label="Basic mixed styles example">
 			<a href="/Avialinijos_delete/{{$airports->id}}/confirm" class="btn btn-success">taip</a>
 			<a  href="/Avialinijos" class="btn btn-danger">ne</a>

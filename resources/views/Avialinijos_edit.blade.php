@@ -31,7 +31,7 @@
 			<hr>
 			<p>Pavadinimas</p>
 			<div class="input-group mb-3">
-				<input value="{{$airports ->name}}" type="text" name='name' id="name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+				<input value="{{$airports ->name_ava}}" type="text" name='name_ava' id="name_ava" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
 			</div>
 			
 			<div class=" mb-3">

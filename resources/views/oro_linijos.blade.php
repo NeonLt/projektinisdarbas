@@ -47,17 +47,14 @@
 			<tr class="table-active ">
 				<td>Pavadinimas</td>
 				<td>Šalis</td>
-				<td>lokacija</td>
 				<td>action</td>
 			</tr>
 			@foreach ($airlines as $airline)
 				<tr>
 					<td>{{$airline->name}}</td>
 					<td>{{$airline->country_name}}</td>
-					@foreach ($airports as $airport)
-					<td>{{$airport->latitude}} - {{$airport->longtitude}}</td>
-					@endforeach
-					<td><a href="/oro_linijos_add" style="background-color: #38E54D" class="btn">Prideti avalinija</a>
+
+					<td><a href="/oro_linijos_add/{{$airline ->id}}" style="background-color: #38E54D" class="btn">Prideti avalinija</a>
 					<a href="/oro_linijos_istrynti/{{$airline ->id}}" style="background-color: #FDFF00" class="btn">Ištrynkite avalinija</a>
 					<a href="/oro_linijos_edit/{{$airline ->id}}" class="btn btn-danger">Redaguoti</a>
 					<a href="/oro_linijos_delete/{{$airline ->id}}" class="btn btn-primary">Ištrynti</a></td>

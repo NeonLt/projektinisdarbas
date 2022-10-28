@@ -26,6 +26,9 @@ class AirlinesController extends Controller
         return view('oro_linijos', compact('airlines', 'airports'));
     }
 
+
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -46,10 +49,11 @@ class AirlinesController extends Controller
      */
     public function add()
     {
+        $airports = Airports::all();
         $airlines = Airlines::all();
         $country = countries::all();
 
-        return view('oro_linijos_add', compact('airlines', 'country' ));
+        return view('oro_linijos_add', compact('airlines', 'country', 'airports' ));
     }
 
     /**
@@ -73,6 +77,11 @@ class AirlinesController extends Controller
         ]);
         return redirect('/');
     }
+
+
+    
+
+
 
     /**
      * Display the specified resource.

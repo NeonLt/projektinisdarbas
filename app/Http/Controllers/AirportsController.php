@@ -6,8 +6,7 @@ use App\Models\Airports;
 use App\Http\Requests\StoreairportsRequest;
 use App\Http\Requests\UpdateairportsRequest;
 use App\Policies\AirportsPolicy;
-
-
+use Symfony\Contracts\Service\Attribute\Required;
 
 class AirportsController extends Controller
 {
@@ -42,21 +41,34 @@ class AirportsController extends Controller
     public function store(StoreairportsRequest $request)
     {
         $validate = $request->validate([
-            'name' => 'required|max:100',
+            'name_ava' => 'required|max:100',
             'country_name' => 'required|max:100',
             'latitude' => 'required|max:100',
             'longtitude' => 'required|max:100',
+            'airline_pavadinimas' => 'max:50',
             //'country_id' =>  'required|max:100',
         ]);
 
         airports::create([
-            'name' => request('name'),
+            'name_ava' => request('name_ava'),
             'country_name' => request('country_name'),
             'latitude' => request('latitude'),
             'longtitude' => request('longtitude'),
+            'airline_pavadinimas' => request('airline_pavadinimas'),
             //'country_id' => request('country_id'),
         ]);
         return redirect('/Avialinijos');
+    }
+
+    public function airports_add_airline_post(UpdateairportsRequest $request, airports $airports){
+
+        $validate = $request->validate([
+        'airline_pavadinimas' => 'Required'
+    ]);
+    Airports::where('id', $airports->id)->update($request->only(['airline_pavadinimas']));
+
+    return redirect('/');
+
     }
 
     /**
@@ -91,7 +103,7 @@ class AirportsController extends Controller
     public function update(UpdateairportsRequest $request, airports $airports)
     {
 
-        Airports::where('id', $airports->id)->update($request->only(['name', 'country_name', 'latitude', 'longtitude', 'country_id']));
+        Airports::where('id', $airports->id)->update($request->only(['name_ava', 'country_name', 'latitude', 'longtitude', 'country_id', 'airline_pavadinimas']));
         return redirect('/Avialinijos');
     }
 

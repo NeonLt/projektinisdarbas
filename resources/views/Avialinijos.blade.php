@@ -41,7 +41,7 @@
 			</tr>
 			@foreach ($airports as $airport)
 					<tr>
-						<td scope="row"> {{ $airport->name}}</td>
+						<td scope="row"> {{ $airport->name_ava}}</td>
 						<td>{{ $airport->country_name}}</td>
 						<td>{{ $airport->latitude}}</td>
 						<td>{{ $airport->longtitude}}</td>

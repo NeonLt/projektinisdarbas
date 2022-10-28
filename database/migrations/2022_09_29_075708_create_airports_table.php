@@ -16,11 +16,12 @@ class CreateAirportsTable extends Migration
         Schema::create('airports', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('name');
+            $table->string('name_ava');
             $table->string('country_name');
             $table->decimal('latitude');
             $table->decimal('longtitude');
             //$table->foreignId('country_id');
+            $table->string('airline_pavadinimas')->nullable();
         });
     }
 

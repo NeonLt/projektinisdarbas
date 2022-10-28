@@ -26,7 +26,7 @@
 	<form action method="post">
 		<div class="text-center">
 		@foreach ($airports as $airport)
-			<h1 class="text-primary">Ištrynkite avialinija iš {{$airports->name}} avalinija</h1> </div>
+			<h1 class="text-primary">Ištrynkite avialinija iš {{$airports->name_ava}} avalinija</h1> </div>
 			@endforeach
 		<hr>
 		<select class="form-select" aria-label="Select country">

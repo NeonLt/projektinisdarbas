@@ -23,15 +23,26 @@
 		</div>
 	</nav>
 	<div class="container-fluid mt-3">
-	<form action method="post">
+		@foreach ($airports as $airport)
+				
+		@endforeach
+	<form action="/airports_add_airline_post/{{ $airport -> id }}" method="post">
 		<div class="text-center">
-			<h1 class="text-primary">Pridekite prie x avalinija</h1> </div>
+			@foreach ($airlines as $airline)
+				
+			@endforeach
+			<h1 class="text-primary">Pridekite prie {{$airline->name}} avalinija</h1> 
+		</div>
 		<hr>
-		<select class="form-select" aria-label="Select country">
+		<select name="airline_pavadinimas" id="airline_pavadinimas" class="form-select" aria-label="Select country">
 			<option selected>Pasirinkite avalinija</option>
-			<option value="3"></option>
+			@foreach ($airports as $airport)
+			<option value="{{$airport->name_ava}}">{{$airport->name_ava}}</option>
+			@endforeach
 		</select>
-		<hr> <a href="#" class="btn btn-success">Sukurti</a> </form>
+		<hr> 
+		<button type="submit" class="btn btn-success">Sukurti</button> 
+	</form>
 	</div>
 </body>
 </html>
